@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: okra
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP  
+  ports:
+  - name: "okra"
+    port: 8080
+  selector:
+    app: okra

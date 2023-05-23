@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: okra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: okra
+  template:
+    metadata:
+      labels:
+        app: okra
+    spec:
+      containers:
+      - image: okteto.dev/okra:latest
+        name: okra
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "4760aecd-3299-4e57-82d2-1fc6bb56ba7e"
+        - name: Vless_Path
+          value: "/dresfxhzvgytuhbyrehy"
+        - name: Vmess_UUID
+          value: "4760aecd-3299-4e57-82d2-1fc6bb56ba7e"
+        - name: Vmess_Path
+          value: "/cfdertgsmnkkopuyrted"
+        - name: Share_Path
+          value: "/v2link"
